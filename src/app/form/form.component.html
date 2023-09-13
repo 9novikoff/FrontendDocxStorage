@@ -1,0 +1,13 @@
+<form #form="ngForm" class="mx-3 mt-2" (ngSubmit)="submitForm(form)">
+  <div class="form-group">
+    <label class="col-form-label-lg">Email address</label>
+    <input type="email" class="form-control" name="email" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="Enter email" ngModel #email="ngModel">
+    <small *ngIf="email.invalid && email.touched && email.dirty" class="form-text text-danger">Enter correct email.</small>
+  </div>
+  <div class="form-group mt-2">
+    <label class="col-form-label-lg">Docx file</label>
+    <input class="form-control form-control" name="file" type="file" required accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document" ngModel #file="ngModel" (change)="onFileSelected($event)">
+    <small *ngIf="file.invalid && file.touched && file.dirty" class="form-text text-danger">Choose correct file(.docx).</small>
+  </div>
+  <button [disabled]="form.invalid" type="submit" class="btn btn-dark mt-4">Submit</button>
+</form>
