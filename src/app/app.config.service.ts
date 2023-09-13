@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
 
-  private appConfig: any;
+  private apiUrl: string = "";
 
   constructor(private http: HttpClient) { }
 
@@ -16,15 +16,15 @@ export class ConfigService {
     //   .then(data => {
     //     this.appConfig = data;
     //   });
-    this.appConfig.apiBaseUrl = "https://localhost:7027/api";
+    this.apiUrl = "https://localhost:7027/api";
   }
 
   get apiBaseUrl() {
 
-    if (!this.appConfig) {
+    if (!this.apiUrl) {
       throw Error('Config file not loaded!');
     }
 
-    return this.appConfig.apiBaseUrl;
+    return this.apiUrl;
   }
 }
