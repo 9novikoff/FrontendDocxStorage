@@ -16,7 +16,7 @@ export class ConfigService {
     //   .then(data => {
     //     this.appConfig = data;
     //   });
-    return "https://localhost:7027/api";
+    this.appConfig.apiBaseUrl = "https://localhost:7027/api";
   }
 
   get apiBaseUrl() {
