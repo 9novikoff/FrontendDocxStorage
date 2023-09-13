@@ -11,11 +11,12 @@ export class ConfigService {
   constructor(private http: HttpClient) { }
 
   loadAppConfig() {
-    return this.http.get('./assets/config.json')
-      .toPromise()
-      .then(data => {
-        this.appConfig = data;
-      });
+    // return this.http.get('./assets/config.json')
+    //   .toPromise()
+    //   .then(data => {
+    //     this.appConfig = data;
+    //   });
+    return "https://localhost:7027/api";
   }
 
   get apiBaseUrl() {
