@@ -22,6 +22,8 @@ export class FormComponent {
     var formData = new FormData();
     formData.append("email", form.value.email);
     formData.append("file", this.file);
-    this.httpClient.post(this.configService.apiBaseUrl, formData).subscribe();
+    var response = this.httpClient.post(this.configService.apiBaseUrl, formData).subscribe();
+    alert("Docx file has been saved");
+    form.reset();
   }
 }
