@@ -16,7 +16,7 @@ export class ConfigService {
     //   .then(data => {
     //     this.appConfig = data;
     //   });
-    this.apiUrl = "https://localhost:7027/api";
+    this.apiUrl = "https://docxstorageapi.azurewebsites.net/api";
   }
 
   get apiBaseUrl() {
