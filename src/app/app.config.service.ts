@@ -6,25 +6,24 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
 
-  private apiUrl: string = "";
+  private appConfig: any;
 
   constructor(private http: HttpClient) { }
 
   loadAppConfig() {
-    // return this.http.get('./assets/config.json')
-    //   .toPromise()
-    //   .then(data => {
-    //     this.appConfig = data;
-    //   });
-    this.apiUrl = "https://docxstorageapi.azurewebsites.net/api";
+    return this.http.get('./assets/config.json')
+      .toPromise()
+      .then(data => {
+        this.appConfig = data;
+      });
   }
 
   get apiBaseUrl() {
 
-    if (!this.apiUrl) {
+    if (!this.appConfig.apiBaseUrl) {
       throw Error('Config file not loaded!');
     }
 
-    return this.apiUrl;
+    return this.appConfig.apiBaseUrl;
   }
 }
